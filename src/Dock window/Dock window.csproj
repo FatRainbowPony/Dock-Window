@@ -17,7 +17,6 @@
     <PackageTags>windows;csharp;dotnet;wpf;dock-window;application-desktop-toolbars</PackageTags>
     <Description>Dock window implementation of WPF</Description>
     <Authors>FatRainbowPony</Authors>
-    <Copyright>MIT</Copyright>
     <Company/>
     <PackageIcon>Icon.png</PackageIcon>	
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
