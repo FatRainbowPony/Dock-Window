@@ -9,7 +9,28 @@
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <AssemblyName>DockWindow</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Title></Title>
+    <Title>DockWindow</Title>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/FatRainbowPony/Dock-window</RepositoryUrl>
+    <PackageTags>windows;csharp;dotnet;wpf;dock-window;application-desktop-toolbars</PackageTags>
+    <Description>Dock window implementation of WPF</Description>
+    <Authors>FatRainbowPony</Authors>
+    <Company />
+    <Copyright>MIT</Copyright>
+    <PackageIcon>Icon.png</PackageIcon>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\img\Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
