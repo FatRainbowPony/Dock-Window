@@ -375,7 +375,9 @@ namespace DockWindow.Windows
 
         private void AddAutohideAnimation()
         {
-            if (Content is Grid rootGrid && FindAnimationRectangle(rootGrid) is Rectangle animRect)
+            if (Content is Grid rootGrid && 
+                FindAnimationGrid(rootGrid) is Grid animGrid &&
+                FindAnimationRectangle(animGrid) is Rectangle animRect)
             {
                 TransformGroup transGroup = new();
                 transGroup.Children.Add(new ScaleTransform());
@@ -383,9 +385,9 @@ namespace DockWindow.Windows
                 transGroup.Children.Add(new RotateTransform());
                 transGroup.Children.Add(new TranslateTransform());
 
-                animRect.RenderTransform = transGroup;
+                animGrid.RenderTransform = transGroup;
 
-                DoubleAnimationUsingKeyFrames posAnim = new() { Name = "PART_PosFrames", KeyFrames = [] };
+                DoubleAnimationUsingKeyFrames posAnim = new() { KeyFrames = [] };
                 posAnim.KeyFrames.Add(new EasingDoubleKeyFrame
                 {
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0)),
@@ -396,11 +398,6 @@ namespace DockWindow.Windows
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(1)),
                     Value = 0
                 });
-
-                DoubleAnimationUsingKeyFrames opacityAnim = new() { KeyFrames = [] };
-                opacityAnim.KeyFrames.Add(new EasingDoubleKeyFrame { KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0)), Value = 0.1 });
-                opacityAnim.KeyFrames.Add(new EasingDoubleKeyFrame { KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(1)), Value = 0.5 });
-                
                 if (DockMode == DockMode.Left || DockMode == DockMode.Right)
                 {
                     Storyboard.SetTargetProperty(posAnim, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"));
@@ -409,21 +406,39 @@ namespace DockWindow.Windows
                 {
                     Storyboard.SetTargetProperty(posAnim, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"));
                 }
-                Storyboard.SetTargetProperty(opacityAnim, new PropertyPath("(UIElement.Opacity)"));
 
-                Storyboard rectStoryboard = new() { Children = [], SpeedRatio = 3 };
-                rectStoryboard.Children.Add(posAnim);
-                rectStoryboard.Children.Add(opacityAnim);
+                Storyboard gridBoard = new() { Children = [], SpeedRatio = 3 };
+                gridBoard.Children.Add(posAnim);
 
-                DataTrigger rectStyleTrigger = new()
+                DataTrigger gridTrigger = new()
                 {
                     Binding = new Binding { RelativeSource = new RelativeSource { AncestorType = typeof(DockWindow) }, Path = new PropertyPath("Visibility") },
                     Value = Visibility.Visible
                 };
-                rectStyleTrigger.EnterActions.Add(new BeginStoryboard { Storyboard = rectStoryboard });
+                gridTrigger.EnterActions.Add(new BeginStoryboard { Storyboard = gridBoard });
+
+                Style gridStyle = new(typeof(Grid));
+                gridStyle.Triggers.Add(gridTrigger);
+
+                animGrid.Style = gridStyle;
+
+                DoubleAnimationUsingKeyFrames opacityAnim = new() { KeyFrames = [] };
+                opacityAnim.KeyFrames.Add(new EasingDoubleKeyFrame { KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0)), Value = 0.1 });
+                opacityAnim.KeyFrames.Add(new EasingDoubleKeyFrame { KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(1)), Value = 0.5 });
+                Storyboard.SetTargetProperty(opacityAnim, new PropertyPath("(UIElement.Opacity)"));
+
+                Storyboard rectBoard = new() { Children = [], SpeedRatio = 3 };
+                rectBoard.Children.Add(opacityAnim);
+
+                DataTrigger rectTrigger = new()
+                {
+                    Binding = new Binding { RelativeSource = new RelativeSource { AncestorType = typeof(DockWindow) }, Path = new PropertyPath("Visibility") },
+                    Value = Visibility.Visible
+                };
+                rectTrigger.EnterActions.Add(new BeginStoryboard { Storyboard = rectBoard });
 
                 Style rectStyle = new(typeof(Rectangle));
-                rectStyle.Triggers.Add(rectStyleTrigger);
+                rectStyle.Triggers.Add(rectTrigger);
 
                 animRect.Style = rectStyle;
             }
@@ -431,8 +446,11 @@ namespace DockWindow.Windows
 
         private void RemoveAutohideAnimation()
         {
-            if (Content is Grid rootGrid && FindAnimationRectangle(rootGrid) is Rectangle animRect)
+            if (Content is Grid rootGrid && 
+                FindAnimationGrid(rootGrid) is Grid animGrid &&
+                FindAnimationRectangle(animGrid) is Rectangle animRect)
             {
+                animGrid.Style = null;
                 animRect.Style = null;
             }
         }
@@ -444,6 +462,19 @@ namespace DockWindow.Windows
                 if (child is Rectangle rect && rect.Name == "PART_AnimRect")
                 {
                     return rect;
+                }
+            }
+
+            return null;
+        }
+
+        private static Grid? FindAnimationGrid(Grid rootGrid)
+        {
+            foreach (object child in rootGrid.Children)
+            {
+                if (child is Grid childGrid && childGrid.Name == "PART_AnimGrid")
+                {
+                    return childGrid;
                 }
             }
 
@@ -461,21 +492,23 @@ namespace DockWindow.Windows
             Content = null;
             Content = new Grid();
 
-            ((Grid)Content).Children.Add((UIElement)oldContent);
-
-            Rectangle animRect = new()
+            Rectangle backRect = new()
             {
                 Name = "PART_AnimRect",
                 RadiusX = 10,
                 RadiusY = 10,
-                HorizontalAlignment = HorizontalAlignment.Stretch
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Stretch,
             };
-            animRect.SetBinding(Shape.FillProperty, new Binding { RelativeSource = new RelativeSource { AncestorType = typeof(DockWindow) }, Path = new PropertyPath("AnimationBackground") });
-            animRect.SetBinding(WidthProperty, new Binding { RelativeSource = new RelativeSource { AncestorType = typeof(DockWindow) }, Path = new PropertyPath("Width") });
+            backRect.SetBinding(Shape.FillProperty, new Binding { RelativeSource = new RelativeSource { AncestorType = typeof(DockWindow) }, Path = new PropertyPath("AnimationBackground") });
+            Panel.SetZIndex(backRect, -1);
 
-            Panel.SetZIndex(animRect, -1);
+            Grid animGrid = new() { Name = "PART_AnimGrid" };
+            animGrid.Children.Add((UIElement)oldContent);
+            animGrid.Children.Insert(1, backRect);
 
-            ((Grid)Content).Children.Insert(1, animRect);
+            Grid rootGrid = (Grid)Content;
+            rootGrid.Children.Add(animGrid);
 
             HwndSource source = (HwndSource)PresentationSource.FromVisual(this);
 
