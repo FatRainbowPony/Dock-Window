@@ -11,30 +11,29 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Title>DockWindow</Title>
     <RepositoryType>git</RepositoryType>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-	<PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/FatRainbowPony/Dock-window</RepositoryUrl>
     <PackageTags>windows;csharp;dotnet;wpf;dock-window;application-desktop-toolbars</PackageTags>
     <Description>Dock window implementation of WPF</Description>
     <Authors>FatRainbowPony</Authors>
-    <Company/>
+    <Company />
     <PackageIcon>Icon.png</PackageIcon>	
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>	
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>	
+    <FileVersion>1.1.0.0</FileVersion>	
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\img\Icon.png">
+    <None Include="..\..\..\Assets\Icons\PNG\Dock window\NuGet\Icon.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\..\README.md">
+    <None Include="..\..\..\Assets\Others\NuGet\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-	<None Include="..\..\LICENSE">
-	  <Pack>True</Pack>
-	  <PackagePath>\</PackagePath>
-	</None>
   </ItemGroup>
 
 </Project>
