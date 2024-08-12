@@ -13,36 +13,33 @@
     BorderThickness="0"
     AllowsTransparency="True"
     DockWidthOrHeight="150"
-    Autohide="True"
     AnimationBackground="White">
-    <Grid>
-        <WrapPanel>
-            <Button 
-                Content="❌" 
-                Width="30" 
-                Height="30" 
-                Margin="10" 
-                VerticalAlignment="Center"
-                Click="CloseClick"/>
-            <ComboBox 
-                x:Name="Monitors" 
-                SelectedItem="{Binding Path=Monitor, Mode=TwoWay}" 
-                Width="120" 
-                Height="25"
-                VerticalAlignment="Center"
-                Margin="10"/>
-            <ComboBox 
-                x:Name="Modes" 
-                SelectedItem="{Binding Path=DockMode, Mode=TwoWay}" 
-                Width="120"
-                Height="25"
-                VerticalAlignment="Center"
-                Margin="10"/>
-            <CheckBox
-                Content="Autohide"
-                IsChecked="{Binding Path=Autohide, Mode=TwoWay}"
-                VerticalAlignment="Center"
-                Margin="10"/>
-        </WrapPanel>
-    </Grid>
+    <WrapPanel>
+        <Button 
+            Content="❌" 
+            Width="30" 
+            Height="30" 
+            Margin="10" 
+            VerticalAlignment="Center"
+            Click="CloseClick"/>
+        <ComboBox 
+            x:Name="Monitors" 
+            SelectedItem="{Binding Path=Monitor, Mode=TwoWay}" 
+            Width="120" 
+            Height="25"
+            VerticalAlignment="Center"
+            Margin="10"/>
+        <ComboBox 
+            x:Name="Modes" 
+            SelectedItem="{Binding Path=DockMode, Mode=TwoWay}" 
+            Width="120"
+            Height="25"
+            VerticalAlignment="Center"
+            Margin="10"/>
+        <CheckBox
+            Content="Autohide"
+            IsChecked="{Binding Path=Autohide, Mode=TwoWay}"
+            VerticalAlignment="Center"
+            Margin="10"/>
+    </WrapPanel>
 </dw:DockWindow>
