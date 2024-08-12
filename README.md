@@ -36,7 +36,6 @@ Create a WPF window and select the `DockWindow` class instead of the `Window` cl
     BorderThickness="0"
     AllowsTransparency="True"
     DockWidthOrHeight="150"
-    Autohide="True"
     AnimationBackground="White">
     <Grid>
     </Grid>
