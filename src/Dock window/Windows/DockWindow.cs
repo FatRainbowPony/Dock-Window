@@ -499,6 +499,7 @@ namespace DockWindow.Windows
                 RadiusY = 10,
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Stretch,
+                Opacity = 0.5
             };
             backRect.SetBinding(Shape.FillProperty, new Binding { RelativeSource = new RelativeSource { AncestorType = typeof(DockWindow) }, Path = new PropertyPath("AnimationBackground") });
             Panel.SetZIndex(backRect, -1);
