@@ -65,6 +65,14 @@ namespace DockWindow.Windows
             set => SetValue(AutohideProperty, value);
         }
 
+        public static readonly DependencyProperty LockAutohideProperty = DependencyProperty.Register(nameof(LockAutohide), typeof(bool), typeof(DockWindow), new PropertyMetadata(false));
+
+        public bool LockAutohide
+        {
+            get => (bool)GetValue(LockAutohideProperty);
+            set => SetValue(LockAutohideProperty, value);
+        }
+
         public static readonly DependencyProperty AnimationBackgroundProperty = DependencyProperty.Register(nameof(AnimationBackground), typeof(Brush), typeof(DockWindow), new FrameworkPropertyMetadata(Brushes.Transparent));
 
         public Brush AnimationBackground
