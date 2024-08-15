@@ -10,7 +10,7 @@ namespace DockWindow.Helpers
         #region Fields
 
         #region Private
-        private readonly object lockObject = new();
+        private readonly object operationLock = new();
         private readonly static object creationLock = new();
         private static volatile GlobalMouseHook? instanceHook;
         private MouseHookHandler? hookHandler;
@@ -68,7 +68,7 @@ namespace DockWindow.Helpers
         {
             if (!isStarted)
             {
-                lock (lockObject) 
+                lock (operationLock) 
                 {
                     if (MouseAction == null)
                     {
@@ -105,7 +105,7 @@ namespace DockWindow.Helpers
         {
             if (isStarted)
             {
-                lock (lockObject) 
+                lock (operationLock) 
                 {
                     bool restMouse = true;
 
