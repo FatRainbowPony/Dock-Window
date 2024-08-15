@@ -12,7 +12,6 @@ namespace DockWindow.Helpers
         #region Private
         private readonly object operationLock = new();
         private readonly static object creationLock = new();
-        private static volatile GlobalMouseHook? instanceHook;
         private MouseHookHandler? hookHandler;
         private int handleHook;
         private bool isStarted;
