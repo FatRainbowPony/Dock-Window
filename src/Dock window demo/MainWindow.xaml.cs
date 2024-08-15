@@ -26,7 +26,7 @@ namespace DockWindowDemo
                 DockMode.Top,
                 DockMode.Bottom
             };
-            Modes.SelectedIndex = 2;
+            Modes.SelectedIndex = 0;
         }
         #endregion Public
 
