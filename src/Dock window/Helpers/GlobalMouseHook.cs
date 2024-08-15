@@ -52,15 +52,10 @@ namespace DockWindow.Helpers
         #region Public
         public static GlobalMouseHook Create()
         {
-            if (instanceHook == null)
+            lock (creationLock)
             {
-                lock (creationLock) 
-                {
-                    instanceHook = new GlobalMouseHook();
-                }
+                return new GlobalMouseHook();
             }
-
-            return instanceHook!;
         }
 
         public void Start()
