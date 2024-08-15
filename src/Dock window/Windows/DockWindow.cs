@@ -316,10 +316,11 @@ namespace DockWindow.Windows
 
                 if (Visibility == Visibility.Visible)
                 {
-                    if (!(mouseX >= dockX1 && mouseY >= dockY1 &&
-                        mouseX <= dockX2 && mouseY >= dockY2 &&
-                        mouseX <= dockX3 && mouseY <= dockY3 &&
-                        mouseX >= dockX4 && mouseY <= dockY4))
+                    if (!(mouseX >= dockX1 && mouseY >= dockY1  &&
+                        mouseX <= dockX2 && mouseY >= dockY2  &&
+                        mouseX <= dockX3 && mouseY <= dockY3  &&
+                        mouseX >= dockX4 && mouseY <= dockY4) && 
+                        !LockAutohide)
                     {
                         Visibility = Visibility.Hidden;
                         Topmost = false;
