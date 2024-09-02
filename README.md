@@ -9,6 +9,7 @@
 # Dock-window
 
 [![Nuget](https://img.shields.io/nuget/v/DockWindow)](https://www.nuget.org/packages/DockWindow)
+[![Downloads](https://img.shields.io/nuget/dt/DockWindow)](https://www.nuget.org/packages/DockWindow) 
 
 Dock window implementation of WPF base off [Using Application Desktop Toolbars](https://msdn.microsoft.com/en-us/library/bb776821.aspx)
 
