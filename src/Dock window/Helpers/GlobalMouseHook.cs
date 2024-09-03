@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using DockWindow.Addons;
 using static DockWindow.Helpers.NativeMethods;
 
