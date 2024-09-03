@@ -42,7 +42,7 @@ namespace DockWindow.Addons
 
         public override int GetHashCode() => DeviceId.GetHashCode();
 
-        public override bool Equals(object? obj) => obj != null && Equals((MonitorInfo)obj);
+        public override bool Equals(object? obj) => obj is MonitorInfo other && Equals(other);
 
         public bool Equals(MonitorInfo? other) => DeviceId == other?.DeviceId;
 
