@@ -80,7 +80,7 @@ namespace DockWindow.Helpers
                             return CallNextHookEx(handleHook, nCode, wParam, lParam);
                         });
 
-                        handleHook = SetWindowsHookEx(WH_MOUSE_LL, hookHandler, Marshal.GetHINSTANCE(Assembly.GetExecutingAssembly().GetModules()[0]), 0);
+                        handleHook = SetWindowsHookEx(WH_MOUSE_LL, hookHandler, 0, 0);
                         if (handleHook == 0)
                         {
                             Stop();
