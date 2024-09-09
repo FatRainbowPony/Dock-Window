@@ -27,11 +27,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Assets\Icons\PNG\Dock window\NuGet\Icon.png">
+    <Resource Include="Assets\PkgIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Resource>
+    <Resource Include="Assets\PkgReadme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\PkgIcon.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\..\..\Assets\Others\NuGet\README.md">
+    <None Update="Assets\PkgReadme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
