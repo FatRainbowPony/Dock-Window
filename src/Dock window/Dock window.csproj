@@ -12,13 +12,13 @@
     <Title>DockWindow</Title>
     <RepositoryType>git</RepositoryType>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>PkgReadme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/FatRainbowPony/Dock-window</RepositoryUrl>
     <PackageTags>windows;csharp;dotnet;wpf;dock-window;application-desktop-toolbars</PackageTags>
     <Description>Dock window implementation of WPF</Description>
     <Authors>FatRainbowPony</Authors>
     <Company />
-    <PackageIcon>Icon.png</PackageIcon>	
+    <PackageIcon>PkgIcon.png</PackageIcon>	
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>	
     <AssemblyVersion>1.1.4.0</AssemblyVersion>	
     <FileVersion>1.1.4.0</FileVersion>	
