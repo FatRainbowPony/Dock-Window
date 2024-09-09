@@ -236,12 +236,12 @@ namespace DockWindow.Windows
                     edgeX4 = 0,
                     edgeY4 = 0;
 
-                int dockX1 = (int)Left,
-                    dockY1 = (int)Top,
-                    dockX2 = dockX1 + (int)Width,
+                int dockX1 = WpfDimensionToDesktop(Left),
+                    dockY1 = WpfDimensionToDesktop(Top),
+                    dockX2 = dockX1 + WpfDimensionToDesktop(Width),
                     dockY2 = dockY1,
                     dockX3 = dockX2,
-                    dockY3 = dockY1 + (int)Height,
+                    dockY3 = dockY1 + WpfDimensionToDesktop(Height),
                     dockX4 = dockX1,
                     dockY4 = dockY3;
 
