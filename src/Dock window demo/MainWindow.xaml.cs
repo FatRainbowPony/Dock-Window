@@ -4,9 +4,6 @@ using DockWindow.Windows;
 
 namespace DockWindowDemo
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : DockWindow.Windows.DockWindow
     {
         #region Constructors
