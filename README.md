@@ -11,7 +11,7 @@
 [![Nuget](https://img.shields.io/nuget/v/DockWindow)](https://www.nuget.org/packages/DockWindow)
 [![Downloads](https://img.shields.io/nuget/dt/DockWindow)](https://www.nuget.org/packages/DockWindow) 
 
-Dock window implementation of WPF base off [Using Application Desktop Toolbars](https://msdn.microsoft.com/en-us/library/bb776821.aspx)
+Dock window implementation of WPF base off [Using Application Desktop Toolbars](https://learn.microsoft.com/en-us/windows/win32/shell/application-desktop-toolbars)
 
  ## Features
 - Docking to any edge and monitor 
