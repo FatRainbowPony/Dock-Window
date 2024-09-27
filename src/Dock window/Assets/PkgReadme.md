@@ -1,5 +1,5 @@
 # Dock window
-Dock window implementation of WPF base off [Using Application Desktop Toolbars](https://msdn.microsoft.com/en-us/library/bb776821.aspx)
+Dock window implementation of WPF base off [Using Application Desktop Toolbars](https://learn.microsoft.com/en-us/windows/win32/shell/application-desktop-toolbars)
 
  ## Features
 - Docking to any edge and monitor 
