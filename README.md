@@ -1,7 +1,7 @@
 <div align="Center">
     <img
-        src="https://github.com/FatRainbowPony/Dock-window/blob/main/img/DockWindow.svg"
-        alt="Dock window" 
+        src="https://github.com/FatRainbowPony/Dock-Window/blob/main/img/DockWindow.svg"
+        alt="DockWindow" 
         width="200" 
         height="170">
 </div>
