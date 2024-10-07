@@ -18,9 +18,9 @@ Dock window implementation of WPF base off [Using Application Desktop Toolbars](
 - Cooperating with other desktop toolbars
 
 ## Usage
-Install the NuGet package. Then create a WPF window and select the `DockWindow` class instead of the `Window` class. Needs to done  both in XAML and in code
+Install the NuGet package. Then create a WPF window and select the `DockWindow` class instead of the `Window` class. Needs to done  both in XAML and code
 
-### In XAML
+- XAML
 ```xml
 <dw:DockWindow 
     x:Class="DockWindowDemo.MainWindow"
@@ -42,7 +42,7 @@ Install the NuGet package. Then create a WPF window and select the `DockWindow` 
 </dw:DockWindow>
 ```
 
-### In code
+- Code
 ```csharp
 namespace DockWindowDemo
 {
