@@ -6,7 +6,7 @@
         height="170">
 </div>
 
-# Dock window
+# Dock Window
 [![Nuget](https://img.shields.io/nuget/v/DockWindow)](https://www.nuget.org/packages/DockWindow)
 [![Downloads](https://img.shields.io/nuget/dt/DockWindow)](https://www.nuget.org/packages/DockWindow) 
 
