@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <RootNamespace>DockWindow</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <AssemblyName>DockWindow</AssemblyName>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Title>DockWindow</Title>
+    <RepositoryType>git</RepositoryType>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>PkgReadme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/FatRainbowPony/Dock-Window</RepositoryUrl>
+    <PackageTags>windows;csharp;dotnet;wpf;dock-window;application-desktop-toolbars</PackageTags>
+    <Description>Dock window implementation of WPF</Description>
+    <Authors>FatRainbowPony</Authors>
+    <Company />
+    <PackageIcon>PkgIcon.png</PackageIcon>	
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>	
+    <AssemblyVersion>1.1.4.0</AssemblyVersion>	
+    <FileVersion>1.1.4.0</FileVersion>	
+    <Version>1.1.4</Version>	
+    <PackageProjectUrl>https://github.com/FatRainbowPony/Dock-Window</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\PkgIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Resource>
+    <Resource Include="Assets\PkgReadme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\PkgIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Assets\PkgReadme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
