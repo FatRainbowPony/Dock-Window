@@ -55,5 +55,7 @@ namespace DockWindowDemo
     }
 }
 ```
-## In action
-<img src="https://github.com/FatRainbowPony/Dock-window/blob/main/img/InAction.gif" width="600" height="338"/>
+
+You can see [DockWindowDemo](https://github.com/FatRainbowPony/Dock-Window/tree/main/src/DockWindowDemo) for an example project
+
+<img src="https://github.com/FatRainbowPony/Dock-Window/blob/main/img/DockWindowDemo.gif" width="600" height="338"/>
